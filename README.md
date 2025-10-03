@@ -10,3 +10,41 @@ Design a system that allows you to control multiple smart home devices with ease
 
 Your challenge is to apply a design pattern that provides a flexible and scalable way to control a variety of smart home devices, ensuring that new devices can be added without disrupting the existing system's functionality.
 
+## UML Class Diagram
+
+<img width="1874" height="1448" alt="Software Engineering 1" src="https://github.com/user-attachments/assets/d4800b1b-27cd-4a02-91f2-1715548c2d23" />
+
+## Components
+
+#### SmartHomeApplication (Client)
+- The main class that creates devices, sets commands on the remote, and simulates button presses to control lights, AC, and music player.
+
+#### RemoteControl (Invoker)
+- Acts as the remote that triggers commands pressButton(). It doesn’t know device details, only executes the assigned command.
+
+#### Command (Interface)
+- Defines the execute() method. All commands implement this so they can be run by the remote.
+
+#### TurnOnCommand (Concrete Command)
+- Turns on the given device (light, AC, or music player) by calling its turnOn() method.
+
+#### TurnOffCommand (Concrete Command)
+- Turns off the given device by calling its turnOff() method.
+
+#### VolumeUpCommand (Concrete Command)
+- Increases the device’s setting (brightness for light, temperature for AC, volume for music player).
+
+#### VolumeDownCommand (Concrete Command)
+- Decreases the device’s setting (brightness, temperature, or volume).
+
+#### Light (Receiver)
+- Represents a light with brightness control. It can turn on, turn off, and adjust brightness.
+
+#### AirConditioner (Receiver)
+- Represents an air conditioner with temperature control. It can start, stop, and adjust temperature.
+
+#### MusicPlayer (Receiver)
+- Represents a music player with volume control. It can play, stop, increase, and decrease volume.
+
+#### Package: SmartHomeAutomation
+- All classes are declared in the SmartHomeAutomation package, which groups the client, invoker, commands, and receivers for the smart-home application.
